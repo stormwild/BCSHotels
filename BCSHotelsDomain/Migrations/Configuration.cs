@@ -47,6 +47,7 @@ namespace BCSHotelsDomain.Migrations
 	        if (!context.Hotels.Any())
 	        {
 		        hotels.ForEach(h => context.Hotels.AddOrUpdate(h));
+		        context.SaveChanges();
 	        }
 
 	        var images = new List<Image>();
@@ -71,7 +72,8 @@ namespace BCSHotelsDomain.Migrations
 	        if (!context.Images.Any())
 			{
 				images.ForEach(img => context.Images.AddOrUpdate(img));
-	        }
+				context.SaveChanges();
+			}
 	        
         }
     }

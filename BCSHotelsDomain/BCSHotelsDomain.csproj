@@ -48,6 +48,10 @@
   <ItemGroup>
     <Compile Include="Entities\Hotel.cs" />
     <Compile Include="Entities\Image.cs" />
+    <Compile Include="Migrations\201502100539258_InitialCreate.cs" />
+    <Compile Include="Migrations\201502100539258_InitialCreate.Designer.cs">
+      <DependentUpon>201502100539258_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Peristence\BCSContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Migrations\Sql\workfile.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201502100539258_InitialCreate.resx">
+      <DependentUpon>201502100539258_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
