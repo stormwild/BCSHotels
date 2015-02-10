@@ -14,9 +14,11 @@
 		@foreach (var img in Model.Images)
 		{
 			<div class="col-sm-6 col-md-4">
-				<img src="@img.Path" alt="@img.Name">
-				<div class="caption">
-					<p>@img.Name</p>
+				<div class="thumbnail">
+					<img src="@img.Path" alt="@img.Name">
+					<div class="caption">
+						<p>@img.Name</p>
+					</div>
 				</div>
 			</div>
 		}
@@ -43,7 +45,6 @@
 </div>
 
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+<p> 
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -30,7 +30,7 @@ namespace BCSHotelsDomain.Migrations
             //    );
             //
 
-	        /*var r = new Random();
+	        var r = new Random();
 			var hotels = new List<Hotel>();
 
 	        for (var i = 0; i < 100; i++)
@@ -44,7 +44,10 @@ namespace BCSHotelsDomain.Migrations
 		        });
 	        }
 
-			hotels.ForEach(h => context.Hotels.AddOrUpdate(h));*/
+	        if (!context.Hotels.Any())
+	        {
+		        hotels.ForEach(h => context.Hotels.AddOrUpdate(h));
+	        }
 
 	        var images = new List<Image>();
 
@@ -56,10 +59,20 @@ namespace BCSHotelsDomain.Migrations
 			        Path = "http://lorempixel.com/400/200/city/" + hotel.Name + "/",
 			        HotelId = hotel.Id
 		        });
+
+		        images.Add(new Image
+		        {
+			        Name = "Image 2 for " + hotel.Name,
+			        Path = "http://lorempixel.com/400/200/city/" + hotel.Name + "/",
+			        HotelId = hotel.Id
+		        });
 	        }
 
-			images.ForEach(img => context.Images.AddOrUpdate(img));
-
+	        if (!context.Images.Any())
+			{
+				images.ForEach(img => context.Images.AddOrUpdate(img));
+	        }
+	        
         }
     }
 }
