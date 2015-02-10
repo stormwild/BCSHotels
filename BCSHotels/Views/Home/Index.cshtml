@@ -1,0 +1,46 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<BCSHotelsDomain.Entities.Hotel>
+
+@{
+	ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+	<h1>BCS Hotels</h1>
+	<p class="lead">Checkout these Hotels.</p>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<p>Sort By</p>
+		<p>
+			@Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSort }) 
+			@Html.ActionLink("Price", "Index", new { sortOrder = ViewBag.PriceSort }) 
+			@Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSort })
+
+		</p>
+	</div>
+</div>
+<div class="row">
+	@foreach (var hotel in Model)
+	{
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img src="@hotel.Images.FirstOrDefault().Path" alt="@hotel.Images.FirstOrDefault().Name">
+				<div class="caption">
+					<h3>@hotel.Name</h3>
+					<p>@hotel.Description</p>
+					<p><a href="@Url.Action("Details", new { id = hotel.Id })" class="btn btn-primary" role="button">Book Now</a></p>
+				</div>
+			</div>
+		</div>
+	}
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+		@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort }))
+	</div>
+</div>
