@@ -53,7 +53,7 @@
       <DependentUpon>201502100539258_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Peristence\BCSContext.cs" />
+    <Compile Include="Persistence\BCSContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

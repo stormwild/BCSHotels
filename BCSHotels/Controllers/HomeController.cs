@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using BCSHotelsDomain.Peristence;
+using BCSHotelsDomain.Persistence;
 using PagedList;
 
 namespace BCSHotels.Controllers

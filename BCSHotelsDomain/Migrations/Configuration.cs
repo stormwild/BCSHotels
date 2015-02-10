@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using BCSHotelsDomain.Entities;
+using BCSHotelsDomain.Persistence;
 
 namespace BCSHotelsDomain.Migrations
 {
@@ -8,14 +9,14 @@ namespace BCSHotelsDomain.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<BCSHotelsDomain.Peristence.BCSContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<BCSContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(BCSHotelsDomain.Peristence.BCSContext context)
+        protected override void Seed(BCSContext context)
         {
             //  This method will be called after migrating to the latest version.
 
