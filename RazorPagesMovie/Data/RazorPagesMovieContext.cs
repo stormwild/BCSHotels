@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using RazorPagesMovie.Models;
 
 namespace RazorPagesMovie.Data
 {
@@ -10,6 +11,16 @@ namespace RazorPagesMovie.Data
         {
         }
 
-        public DbSet<RazorPagesMovie.Models.Movie> Movie { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite(@"Data Source=MvcMovie.db;");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Movie>().ToTable("Movie");
+        }
     }
 }
