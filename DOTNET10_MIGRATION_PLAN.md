@@ -7,7 +7,7 @@ This document outlines the strategy to migrate the BCSHotels codebase to .NET 10
 - **1 project** on .NET Core 3.1 (intermediate)
 - **4 projects** on .NET 8.0 (modern)
 
-**Note:** As of January 2025, .NET 9 is the latest stable release. .NET 10 is expected in November 2026. This plan can be adapted for either .NET 9 (immediate) or .NET 10 (future).
+**Note:** .NET 10 was released in November 2025 and is the latest stable Long-Term Support (LTS) release. This plan focuses on migrating directly to .NET 10.
 
 ---
 
@@ -518,26 +518,19 @@ Update code to use `IConfiguration` instead of `ConfigurationManager`.
 
 ## Timeline Estimation
 
-### Option 1: Migrate to .NET 9 (Current Stable)
+### Complete Migration to .NET 10
 
 | Phase | Duration | Tasks |
 |-------|----------|-------|
-| **Phase 1** | 1-2 weeks | FineHotels (.NET 8→9), RazorPagesMovie (.NET 3.1→9) |
+| **Phase 1** | 1-2 weeks | FineHotels (.NET 8→10), RazorPagesMovie (.NET 3.1→10) |
 | **Phase 2** | 2-3 weeks | BCSHotels migration planning & analysis |
 | **Phase 3** | 4-6 weeks | BCSHotels migration execution |
 | **Phase 4** | 2-3 weeks | Testing & validation |
-| **Total** | **9-14 weeks** | Complete migration |
+| **Total** | **9-14 weeks** | Complete migration to .NET 10 |
 
-### Option 2: Wait for .NET 10 (November 2026)
+**Note:** .NET 10 is an LTS (Long-Term Support) release with support through November 2028 (3 years). This provides a stable foundation for long-term production use.
 
-| Phase | Duration | Tasks |
-|-------|----------|-------|
-| **Preparation** | Now - Nov 2026 | Migrate to .NET 8/9 first, prepare for .NET 10 |
-| **Phase 1** | 1 week | All projects .NET 9→10 (straightforward if already on .NET 9) |
-| **Phase 2** | 1-2 weeks | Testing & validation |
-| **Total** | **2-3 weeks** | .NET 9→10 upgrade |
-
-**Recommendation:** Migrate to .NET 9 now, then upgrade to .NET 10 when available.
+**Recommended Approach:** Migrate all projects directly to .NET 10 to take advantage of the latest features, performance improvements, and long-term support.
 
 ---
 
@@ -551,8 +544,8 @@ Update code to use `IConfiguration` instead of `ConfigurationManager`.
    ```
 
 2. **Phase 1: Quick Wins** (Start Here)
-   - [ ] Upgrade FineHotels projects to .NET 9/10
-   - [ ] Upgrade RazorPagesMovie to .NET 9/10
+   - [ ] Upgrade FineHotels projects to .NET 10
+   - [ ] Upgrade RazorPagesMovie to .NET 10
    - [ ] Test and validate
    - [ ] Commit and tag
 
@@ -626,7 +619,7 @@ Each sub-branch merges back to `feature/dotnet10-migration`, which eventually me
 | ASP.NET Core | ✗ | ✓ | ✓ | ✓ |
 | EF Core | ✗ | ✓ | ✓ | ✓ |
 | Performance | Baseline | Better | Much Better | Best |
-| Support Status | EOL | EOL | LTS (2026) | LTS (2029) |
+| Support Status | EOL | EOL | LTS (Nov 2026) | LTS (Nov 2028) |
 
 ---
 
@@ -634,18 +627,18 @@ Each sub-branch merges back to `feature/dotnet10-migration`, which eventually me
 
 Migrating to .NET 10 is a significant undertaking, especially for the legacy BCSHotels projects. However, the benefits include:
 
-- **Long-term support** through 2029
+- **Long-term support** through November 2028 (3-year LTS)
 - **Performance improvements** (30-50% in many scenarios)
 - **Cross-platform** capabilities
 - **Modern development** patterns and tooling
-- **Security improvements**
-- **Community support** and ecosystem
+- **Security improvements** and latest security features
+- **Community support** and thriving ecosystem
 
 The phased approach minimizes risk and allows for learning and adjustment throughout the process.
 
 **Next Steps:**
 1. Review and approve this plan
-2. Set up development environment with .NET 9/10 SDK
+2. Set up development environment with .NET 10 SDK
 3. Begin Phase 1 with FineHotels projects
 4. Schedule planning sessions for BCSHotels migration
 
